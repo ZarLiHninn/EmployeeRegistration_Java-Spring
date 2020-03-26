@@ -11,9 +11,9 @@ public class Employee {
   private int age;
   private List<String> work_place;
   private Genders gender;
-  @DateTimeFormat(pattern = "dd/MM/yyyy")
+  @DateTimeFormat(pattern = "MM/dd/yyyy")
   private Date entry_date;
-  @DateTimeFormat(pattern = "dd/MM/yyyy")
+  @DateTimeFormat(pattern = "MM/dd/yyyy")
   private Date leave_date;
 public String getName() {
 	return name;

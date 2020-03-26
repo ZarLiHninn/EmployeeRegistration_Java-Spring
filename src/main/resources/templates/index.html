@@ -6,9 +6,9 @@
 <title>Login</title>
 
 <link th:rel="stylesheet"
-	th:href="@{webjars/bootstrap-datetimepicker/2.3.8/css/bootstrap-datetimepicker.css}" />
+	th:href="@{webjars/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css}" />
 <link th:rel="stylesheet"
-	th:href="@{webjars/bootstrap-datetimepicker/2.3.8./css/bootstrap-datetimepicker.min.css}" />
+	th:href="@{webjars/bootstrap-datetimepicker/1.7.1/css/bootstrap-datepicker.standalone.css}" />
 <link th:rel="stylesheet"
 	th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
 <link th:rel="stylesheet"
@@ -45,27 +45,25 @@
 							th:for="${#ids.prev('gender')}" th:text="${gen}">性別</label>
 						</span>
 					</div>
-					<br /> <label for="entrydate">入社年月日</label>
+					<br />
+					<!-- <label for="entrydate">入社年月日</label>
 					<div class="input-group date">
 						<input type="text" class="form-control" id="entrydate"
-							autocomplete="off" th:field="*{entry_date}"
-							placeholder="dd/mm/yy" />
+							autocomplete="off" th:field="*{entry_date}"/>
 						<div class="input-group-append">
 							<span class="input-group-text"><i
-								class="far fa-calendar-alt"></i></span>
+								class="fa fa-calendar-alt"></i></span>
 						</div>
+					</div> -->
+					<div class="form-group">
+						<label for="entrydate">入社年月日</label> <input type="text"
+							class="demo form-control" id="entrydate" th:field="*{entry_date}" />
+
 					</div>
+					<div class="form-group">
+						<label for="leavedate">退社年月日</label> <input type="text"
+							class="demo form-control" id="leavedate" th:field="*{leave_date}" />
 
-
-					<label for="leavedate">退社年月日</label>
-					<div class="input-group date">
-						<input type="text" class="form-control" id="leavedate"
-							autocomplete="off" th:field="*{leave_date}"
-							placeholder="dd/mm/yy" />
-						<div class="input-group-append">
-							<span class="input-group-text"><i
-								class="far fa-calendar-alt"></i></span>
-						</div>
 					</div>
 
 
@@ -80,11 +78,11 @@
 	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	<script
-		th:src="@{/webjars/bootstrap-datetimepicker/2.3.8/js/bootstrap-datetimepicker.js}"></script>
+		th:src="@{/webjars/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js}"></script>
 	<script
-		th:src="@{/webjars/bootstrap-datetimepicker/2.3.8/js/bootstrap-datetimepicker.min.js}"></script>
+		th:src="@{/webjars/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js}"></script>
 	<script>
-		$('.input-group.date').datepicker({
+		$('.demo').datepicker({
 			autoclose : true,
 			todayHighlight : true
 		});
