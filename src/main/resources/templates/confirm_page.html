@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <meta charset="ISO-8859-1">
 <title>Login</title>
-
 <link th:rel="stylesheet"
 	th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
 <link th:rel="stylesheet"
@@ -12,65 +11,34 @@
 </head>
 <body>
 	<div class="container">
-		<h1 style="text-align: center; color: #b30000; font-weight: bold;">従業員登録</h1>
+		<h1 style="text-align: center; color: #b30000; font-weight: bold;">確認画面</h1>
 		<div class="row">
 			<div class="col-md-6">
-				<img src="images/thank.jpg" class="img-responsive">
+				<img src="images/thankyou.jpg" class="img-fluid">
+
 			</div>
 			<div class="col-md-6">
-				<div th:if="${employee != null}">
-
-					<div>
-						<h3>名前</h3>
-						<ul>
-							<li th:text="${employee.name}"></li>
-						</ul>
-					</div>
-					<div>
-						<h3>年齢</h3>
-						<ul>
-							<li th:text="${employee.age}"></li>
-						</ul>
-					</div>
-					<div>
-						<h3>部署</h3>
-						<ul>
-							<li th:text="${employee.work_place}"></li>
-						</ul>
-
-					</div>
-					<div>
-						<h3>性別</h3>
-						<ul>
-							<li th:text="${employee.gender}"></li>
-						</ul>
-					</div>
-					<div>
-						<h3>入社年月日</h3>
-						<ul>
-							<li th:text="${#dates.format(employee.entry_date, 'yyyy-MM-dd')}"></li>
-						</ul>
-					</div>
-					<div>
-						<h3>退社年月日</h3>
-						<ul>
-							<li th:text="${#dates.format(employee.leave_date, 'yyyy-MM-dd')}"></li>
-						</ul>
-					</div>
-
-
+				<div class="jumbotron">
+					<h3>そのデータを保存してもよろしいですか？</h3>
+					<p style="color: red;">それなら、以下の登録ボタンをクリックしてください！</p>
+					<form th:action="@{/save}" method="post">
+						<input type="hidden" th:field="*{emp.emp_name}"> 
+						<input type="hidden" th:field="*{emp.emp_age}"> 
+						<input type="hidden" th:field="*{emp.emp_workplace}"> 
+						<input type="hidden" th:field="*{emp.emp_gender}"> 
+						<input type="hidden" th:field="*{emp.entry_date}">
+						<input type="hidden" th:field="*{emp.leave_date}"> 
+						<a th:href="@{/back}">戻る</a> 
+						<input type="submit" value="登録">
+					</form>
 				</div>
 
-				<a th:href="@{/}">Back</a>
+
 			</div>
 		</div>
-
-
 	</div>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-
-
 </body>
 </html>
