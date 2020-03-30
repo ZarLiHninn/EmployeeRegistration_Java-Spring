@@ -22,13 +22,13 @@
 					<h3>そのデータを保存してもよろしいですか？</h3>
 					<p style="color: red;">それなら、以下の登録ボタンをクリックしてください！</p>
 					<form th:action="@{/save}" method="post">
-						<input type="hidden" th:field="*{emp.emp_name}"> 
-						<input type="hidden" th:field="*{emp.emp_age}"> 
-						<input type="hidden" th:field="*{emp.emp_workplace}"> 
-						<input type="hidden" th:field="*{emp.emp_gender}"> 
-						<input type="hidden" th:field="*{emp.entry_date}">
-						<input type="hidden" th:field="*{emp.leave_date}"> 
-						<a th:href="@{/back}">戻る</a> 
+						<input type="hidden" th:field="*{employee.name}">
+						<input type="hidden" th:field="*{employee.age}">
+						<input type="hidden" th:field="*{employee.workplace}">
+						<input type="hidden" th:field="*{employee.gender}">
+						<input type="hidden" th:field="*{employee.entryDate}">
+						<input type="hidden" th:field="*{employee.leaveDate}">
+						<a th:href="@{/back}">戻る</a>
 						<input type="submit" value="登録">
 					</form>
 				</div>

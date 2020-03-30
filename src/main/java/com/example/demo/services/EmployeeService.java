@@ -1,21 +1,20 @@
 package com.example.demo.services;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.example.demo.model.Employee;
-import com.example.demo.repositories.EmployeeRepository;
 
-@Service
-public class EmployeeService {
-	@Autowired
-	private EmployeeRepository repo;
+import com.example.demo.controller.form.EmployeeForm;
 
-	public List<Employee> listAll() {
-		return repo.findAll();
-	}
+public interface  EmployeeService {
 
-	public void save(Employee employee) {
-		repo.save(employee);
-	}
+	/**
+	 * すべての従業員を取得する
+	 * @return 従業員リスト
+	 */
+	public List<EmployeeForm> listAll();
+
+	/**
+	 * 従業員を登録する
+	 * @param employee
+	 */
+	public void save(EmployeeForm employeeForm);
 }

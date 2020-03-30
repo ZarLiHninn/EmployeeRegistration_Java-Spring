@@ -23,34 +23,34 @@
 			<div class="col-md-6">
 				<form th:action="@{/submit_form}" th:object="${employee}" method="post">
 					<div class="form-group">
-						<label>名前</label> 
-						<input type="text" th:field="*{emp_name}" class="form-control" required="required" minlength="3" maxlength="50">
+						<label>名前</label>
+						<input type="text" th:field="*{name}" class="form-control" required="required" minlength="3" maxlength="50">
 					</div>
 					<div class="form-group">
-						<label>年齢</label> 
-						<input type="text" th:field="*{emp_age}" required="required" maxlength="2" class="form-control" pattern="\d*" title="かずだけ, おねがいします。">
+						<label>年齢</label>
+						<input type="text" th:field="*{age}" required="required" maxlength="2" class="form-control" pattern="\d*" title="かずだけ, おねがいします。">
 					</div>
 					<div>
-						<label>部署</label> 
-						<select th:field="*{emp_workplace}">
+						<label>部署</label>
+						<select th:field="*{workplace}">
 							<option th:each="w : ${wList}" th:value="${w}" th:text="${w}"></option>
 						</select>
 					</div>
 					<br />
 					<div>
-						<span th:each="gen: ${gList}"> <input type="radio" th:field="*{emp_gender}" th:value="${gen}" /> 
-							<label th:for="${#ids.prev('emp_gender')}" th:text="${gen}">性別</label>
+						<span th:each="gen: ${gList}"> <input type="radio" th:field="*{gender}" th:value="${gen}" />
+							<label th:for="${#ids.prev('gender')}" th:text="${gen}">性別</label>
 						</span>
 					</div>
 					<br />
 
 					<div class="form-group">
-						<label for="entrydate">入社年月日</label> 
-						<input class="demo form-control" id="entrydate" th:field="*{entry_date}" />
+						<label for="entrydate">入社年月日</label>
+						<input class="demo form-control" id="entrydate" th:field="*{entryDate}" />
 					</div>
 					<div class="form-group">
-						<label for="leavedate">退社年月日</label> 
-						<input class="demo form-control" id="leavedate" th:field="*{leave_date}" />
+						<label for="leavedate">退社年月日</label>
+						<input class="demo form-control" id="leavedate" th:field="*{leaveDate}" />
 					</div>
 
 					<input type="submit" value="入力">
