@@ -23,15 +23,15 @@ DROP TABLE IF EXISTS `employee`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `employee` (
-  `emp_id` int(11) NOT NULL AUTO_INCREMENT,
-  `emp_name` varchar(45) DEFAULT NULL,
-  `emp_age` int(11) DEFAULT NULL,
-  `emp_workplace` varchar(45) DEFAULT NULL,
-  `emp_gender` varchar(45) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `workplace` varchar(45) DEFAULT NULL,
+  `gender` varchar(45) DEFAULT NULL,
   `entry_date` date DEFAULT NULL,
   `leave_date` date DEFAULT NULL,
-  PRIMARY KEY (`emp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Zar Li Hnin',12,'HR','FEMALE','2020-03-10','2020-02-10'),(2,'Zar Li Hnin',12,'HR','FEMALE','2020-03-10','2020-02-10'),(3,'Thet Mhue',22,'HR','MALE','2020-03-19','2020-03-26'),(4,'Kyaw Kyaw',23,'HR','MALE','2020-03-19','2020-03-25');
+INSERT INTO `employee` VALUES (1,'Zar Li Hnin',12,'HR','FEMALE','2020-03-10','2020-02-10'),(2,'Zar Li Hnin',12,'HR','FEMALE','2020-03-10','2020-02-10'),(3,'Thet Mhue',22,'HR','MALE','2020-03-19','2020-03-26'),(4,'Kyaw Kyaw',23,'HR','MALE','2020-03-19','2020-03-25'),(5,'Zar Li Hnin',22,'HR','FEMALE','2020-03-19','2020-03-23'),(6,'Khaing Khain',33,'HR','FEMALE','2020-03-19','2020-03-17'),(7,'Khaing Khaing',34,'HR','FEMALE','2020-03-19','2020-03-25'),(8,'Thu Htet Pyae',23,'HR','MALE','2020-03-10','2020-03-28'),(9,'Nyi Nyi Khnin',24,'SALES','MALE','2020-03-03','2020-03-13'),(10,'Kyaw Thu',35,'SALES','MALE','2020-03-10','2020-03-26'),(11,'Khaing Wutt Mhone',24,'HR','FEMALE','2020-03-02','2020-03-26');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-30 16:06:23
+-- Dump completed on 2020-03-31 21:48:21

@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.demo.model.Employee;
+import com.example.demo.dto.EmployeeForm;
 import com.example.demo.services.EmployeeService;
 
 @Controller
@@ -28,12 +27,12 @@ public class HomeController {
 	private List<String> genders;
 
 	@Autowired
-	private EmployeeService emp_service;
+	private EmployeeService employeeService;
 
 	@GetMapping("/")
 	public String viewInputPage(Model model) {
-		Employee employee = new Employee();
-		model.addAttribute("employee", employee);
+		EmployeeForm employeeForm = new EmployeeForm();
+		model.addAttribute("employee", employeeForm);
 		List<String> workplaceList = work_places;
 		List<String> genderList = genders;
 		model.addAttribute("wList", workplaceList);
@@ -42,16 +41,15 @@ public class HomeController {
 	}
 
 	@PostMapping("/submit_form")
-	public String post(Employee emp, ModelMap map) {
-		map.put("emp", emp);
-
-		return "confirm_page";
+	public String confirm(EmployeeForm employeeForm, ModelMap map) {
+		map.put("employee", employeeForm);
+        return "confirm_page";
 	}
 
 	@PostMapping("/save")
-	public String save(@ModelAttribute("employee") Employee employee, Model model) {
-		emp_service.save(employee);
-		List<Employee> listAll = emp_service.listAll();
+	public String save(@ModelAttribute("employee") EmployeeForm employeeForm, Model model) {
+		employeeService.save(employeeForm);
+		List<EmployeeForm> listAll = employeeService.listAll();
 		model.addAttribute("listAll", listAll);
 		return "register";
 	}

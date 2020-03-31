@@ -40,13 +40,13 @@
 
 								<tbody>
 									<tr th:each="employee:${listAll}">
-										<th th:text="${employee.emp_id}"></th>
-										<td th:text="${employee.emp_name}"></td>
-										<td th:text="${employee.emp_age}"></td>
-										<td th:text="${employee.emp_workplace}"></td>
-										<td th:text="${employee.emp_gender}"></td>
-										<td th:text="${employee.entry_date}"></td>
-										<td th:text="${employee.leave_date}"></td>
+										<th th:text="${employee.id}"></th>
+										<td th:text="${employee.name}"></td>
+										<td th:text="${employee.age}"></td>
+										<td th:text="${employee.workplace}"></td>
+										<td th:text="${employee.gender}"></td>
+										<td th:text="${employee.entryDate}"></td>
+										<td th:text="${employee.leaveDate}"></td>
                                     </tr>
 								</tbody>
 							</table>
