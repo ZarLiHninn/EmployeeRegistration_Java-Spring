@@ -3,9 +3,13 @@ package com.example.demo.dto;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
+
+import com.example.demo.model.Department;
 
 import lombok.Data;
 
+@Component
 @Data
 public class EmployeeForm {
 
@@ -15,7 +19,7 @@ public class EmployeeForm {
 
 	private String age;
 
-	private String workplace;
+	private Department department;
 
 	private String gender;
 

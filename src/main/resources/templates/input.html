@@ -21,6 +21,10 @@
 				<img src="images/register.jpg" class="img-fluid">
 			</div>
 			<div class="col-md-6">
+			   <div style="text-align:right;font-weight: bold;">
+			      <a th:href="@{/employeeList}">従業員リスト</a>
+			   </div>
+			　　　
 				<form th:action="@{/submit_form}" th:object="${employee}" method="post">
 					<div class="form-group">
 						<label>名前</label> 
@@ -32,8 +36,8 @@
 					</div>
 					<div>
 						<label>部署</label> 
-						<select th:field="*{workplace}">
-							<option th:each="w : ${wList}" th:value="${w}" th:text="${w}"></option>
+						<select th:field="*{department}">
+							<option th:each="d : ${dList}" th:value="${d.id}" th:text="${d.type}"></option>
 						</select>
 					</div>
 					<br />
@@ -53,7 +57,8 @@
 						<input class="demo form-control" id="leavedate" th:field="*{leaveDate}" />
 					</div>
 
-					<input type="submit" value="入力">
+					<button type="submit" name="action" value="submit" th:disabled="${no_input}">入力</button>
+                    <button type="submit" name="action" value="update" th:disabled="${no_update}">更新</button>
 				</form>
 			</div>
 		</div>

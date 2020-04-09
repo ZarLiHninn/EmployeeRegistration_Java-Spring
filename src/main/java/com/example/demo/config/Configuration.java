@@ -8,11 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @org.springframework.context.annotation.Configuration
 public class Configuration extends WebMvcConfigurerAdapter {
-	@Bean
-	@Qualifier("work_places")
-	public List<String> work_places() {
-		return Arrays.asList("SALES", "HR", "IT");
-	}
 
 	@Bean
 	@Qualifier("genders")
