@@ -15,26 +15,22 @@
 		<div class="row">
 			<div class="col-md-6">
 				<img src="images/thankyou.jpg" class="img-fluid">
-
-			</div>
+            </div>
 			<div class="col-md-6">
 				<div class="jumbotron">
 					<h3>そのデータを保存してもよろしいですか？</h3>
 					<p style="color: red;">それなら、以下の登録ボタンをクリックしてください！</p>
 					<form th:action="@{/save}" method="post">
-						<input type="hidden" th:field="*{employee.name}"> 
-						<input type="hidden" th:field="*{employee.age}"> 
-						<input type="hidden" th:field="*{employee.department}"> 
-						<input type="hidden" th:field="*{employee.gender}"> 
-						<input type="hidden" th:field="*{employee.entryDate}">
-						<input type="hidden" th:field="*{employee.leaveDate}"> 
-						<a th:href="@{/back}">戻る</a> 
-						<input type="submit" value="登録">
+						<input type="hidden" th:field="*{employee.name}"> <input
+							type="hidden" th:field="*{employee.age}"> <input
+							type="hidden" th:field="*{employee.department.id}"> <input
+							type="hidden" th:field="*{employee.gender}"> <input
+							type="hidden" th:field="*{employee.entryDate}"> <input
+							type="hidden" th:field="*{employee.leaveDate}"> <a
+							th:href="@{/back}">戻る</a> <input type="submit" value="登録">
 					</form>
 				</div>
-
-
-			</div>
+           </div>
 		</div>
 	</div>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
