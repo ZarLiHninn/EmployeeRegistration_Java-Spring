@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<link th:rel="stylesheet"
+	th:href="@{webjars/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css}" />
+<link th:rel="stylesheet"
+	th:href="@{webjars/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.standalone.css}" />
+<link th:rel="stylesheet"
+	th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" />
+<link th:rel="stylesheet"
+	th:href="@{webjars/font-awesome/5.11.2/css/all.css}" />
+</head>
+<body>
+	<div class="container">
+		<h1 style="text-align: center; color: #b30000; font-weight: bold;">従業員登録</h1>
+		<div class="row">
+			<div class="col-md-6">
+				<img src="images/register.jpg" class="img-fluid">
+			</div>
+			<div class="col-md-6">
+			   <div style="text-align:right;font-weight: bold;">
+			      <a th:href="@{/employeeList}">従業員リスト</a>
+			   </div>
+			　　　
+				<form th:action="@{/submit_form}" th:object="${employee}" method="post">
+					<div class="form-group">
+						<label>名前</label> 
+						<input type="text" th:field="*{name}" class="form-control" required="required" minlength="3" maxlength="50">
+					</div>
+					<div class="form-group">
+						<label>年齢</label> 
+						<input type="text" th:field="*{age}" required="required" maxlength="2" class="form-control" pattern="\d*" title="かずだけ, おねがいします。">
+					</div>
+					<div>
+						<label>部署</label> 
+						<select th:field="*{department}">
+							<option th:each="d : ${dList}" th:value="${d.id}" th:text="${d.type}"></option>
+						</select>
+					</div>
+					<br />
+					<div>
+						<span th:each="gen: ${gList}"> <input type="radio" th:field="*{gender}" th:value="${gen}" /> 
+							<label th:for="${#ids.prev('gender')}" th:text="${gen}">性別</label>
+						</span>
+					</div>
+					<br />
+
+					<div class="form-group">
+						<label for="entrydate">入社年月日</label> 
+						<input class="demo form-control" id="entrydate" th:field="*{entryDate}" />
+					</div>
+					<div class="form-group">
+						<label for="leavedate">退社年月日</label> 
+						<input class="demo form-control" id="leavedate" th:field="*{leaveDate}" />
+					</div>
+
+					<button type="submit" name="action" value="submit" th:disabled="${no_input}">入力</button>
+                    <button type="submit" name="action" value="update" th:disabled="${no_update}">更新</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script
+		th:src="@{/webjars/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js}"></script>
+	<script
+		th:src="@{/webjars/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js}"></script>
+	<script>
+		$('.demo').datepicker({
+			autoclose : true,
+			todayHighlight : true
+		});
+	</script>
+</body>
+</html>
