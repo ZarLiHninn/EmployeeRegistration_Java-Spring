@@ -46,7 +46,7 @@
 					</div>
 					<div>
 						<label>部署</label> 
-						<select th:field="*{department}">
+						<select th:field="*{department.id}">
 							<option th:each="d : ${dList}" th:value="${d.id}" th:text="${d.type}"></option>
 						</select>
 					</div>
