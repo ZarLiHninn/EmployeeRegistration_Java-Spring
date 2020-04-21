@@ -13,6 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.demo.model.Department;
 import com.example.demo.model.Employee;
 
+/**
+ * 
+ * @author Zar Li Hnin
+ *
+ */
 @Repository
 @Transactional
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -22,9 +27,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Autowired
 	private Employee emp;
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Employee> list() {
-
+		// 従業員リストを取得する
 		String sql = "SELECT * FROM employee e,department d where e.department_id=d.id";
 
 		List<Employee> employees = new ArrayList<>();
@@ -50,8 +58,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return employees;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public int save(Employee employee) {
+		// 従業員テーブルに登録する
 		return jdbcTemplate.update(
 				"insert into employee (id,name, age,department_id,gender,entry_date,leave_date) values(?,?,?,?,?,?,?)",
 				employee.getId(), employee.getName(), employee.getAge(), employee.getDepartment().getId(),
@@ -59,8 +71,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public Employee get(int id) {
+		//更新したいデータを取得する
 		String sql = "SELECT * FROM employee e,department d where e.department_id=d.id and e.id = ?";
 		Object[] args = { id };
 
@@ -79,11 +95,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			emp.setLeaveDate((Date) row.get("leave_date"));
 
 		}
+		//employee modelにセットする
 		return emp;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void update(Employee employee) {
+		//直したデータを更新する
 		String query = "update employee set id=?, name=?, age=?,department_id=?,gender=?,entry_date=?,leave_date=? where id=?";
 
 		jdbcTemplate.update(query, employee.getId(), employee.getName(), employee.getAge(),
@@ -92,16 +113,23 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void delete(int id) {
+		//削除する
 		String sql = "DELETE FROM employee WHERE id = ?";
 		jdbcTemplate.update(sql, id);
 
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public List<Employee> search(String searchData) {
-
+		//検索したデータを表示する
 		String sql = "SELECT * FROM employee e,department d where e.department_id=d.id and (e.name LIKE ? or e.age LIKE ? or d.type LIKE ? or e.gender LIKE ? )";
 		Object[] args = { searchData + "%", searchData + "%", searchData + "%", searchData + "%" };
 		List<Employee> employees = new ArrayList<>();

@@ -5,6 +5,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
+
+/**
+ * 
+ * @author Zar Li Hnin
+ *
+ */
 @Data
 public class Department {
 

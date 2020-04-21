@@ -1,9 +1,9 @@
-package com.example.demo.dao;
+package com.example.demo.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.example.demo.model.Employee;
 
 /**
@@ -11,15 +11,13 @@ import com.example.demo.model.Employee;
  * @author Zar Li Hnin
  *
  */
-@Repository
-@Transactional
-public interface EmployeeDao {
+public interface EmployeeService {
 
 	/**
 	 * すべての従業員を取得する
 	 * @return 従業員リスト
 	 */
-	public List<Employee> list();
+	public List<Employee> listAll();
 
 	/**
 	 * 従業員を登録する
@@ -27,14 +25,14 @@ public interface EmployeeDao {
 	 * @return
 	 */
 	@Transactional(rollbackFor = { Exception.class })
-	public int save(Employee employee);
+	public void create(Employee employee);
 
 	/**
 	 * 更新したいデータのidをもらえる
 	 * @param id
 	 * @return
 	 */
-	public Employee get(int id);
+	public Employee getOneData(int id);
 
 	/**
 	 * 直したデータを更新する
@@ -55,5 +53,4 @@ public interface EmployeeDao {
 	 * @return　検索したいデータを表示する
 	 */
 	public List<Employee> search(String searchData);
-
 }

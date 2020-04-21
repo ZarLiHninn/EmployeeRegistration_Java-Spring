@@ -13,6 +13,11 @@ import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
+/**
+ * 
+ * @author Zar Li Hnin
+ *
+ */
 @Component
 @Data
 public class Employee {
@@ -20,11 +25,11 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@NotEmpty(message = "名前が必要です。")
-	@Size(min = 2, max = 30, message = "名前が少なくとも二つで、せいぜい三十個です。")
+	@NotEmpty(message="{validation.name.NotEmpty}")
+	@Size(min = 2, max = 30,message="{validation.name.Size}")
 	private String name;
 
-	@Min(value = 18, message = "年齢が少なくとも１８さいです。")
+	@Min(value = 18, message = "{validation.age.Min}")
 	private int age;
 
 	private Department department;

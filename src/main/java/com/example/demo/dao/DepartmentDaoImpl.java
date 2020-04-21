@@ -11,6 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Department;
 
+/**
+ * 
+ * @author Zar Li Hnin
+ *
+ */
 @Repository
 @Transactional
 public class DepartmentDaoImpl implements DepartmentDao {
@@ -18,9 +23,12 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Department> list() {
-
+		// 部署リストを取得する
 		String sql = "SELECT * FROM department";
 
 		List<Department> departments = new ArrayList<>();
